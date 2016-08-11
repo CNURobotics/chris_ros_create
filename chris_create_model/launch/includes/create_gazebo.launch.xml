@@ -1,0 +1,28 @@
+<launch>
+  <arg name="initial_pose" default=""/> <!-- x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -->
+  <arg name="node_name" default="/create_node" />
+
+  <!-- This presumes a robot description is already loaded -->
+
+  <!-- Gazebo model spawner $(find chris_create_model) -->
+  <node name="spawn_create_model" pkg="gazebo_ros" type="spawn_model"
+        args="-unpause -urdf -param robot_description -model create $(arg initial_pose)"/>
+  
+  <!-- joint states to tf -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+    <remap from="joint_states" to="/create_node/joint_states" />
+  </node>
+
+
+  <!-- Odometry estimator for robot odometry published by the node plugin -->
+  <node pkg="simple_message_to_tf" type="message_to_tf" name="robot_odometry">
+    <param name="odometry_topic" value="$(arg node_name)/odom"/>
+   </node>
+  
+  <!-- Ground truth between gazebo world frame and the map frame defined by localization -->
+  <!--node pkg="simple_message_to_tf" type="message_to_tf" name="robot_ground_truth">
+    <param name="odometry_topic" value="$(arg node_name)/odom_ground_truth"/>
+  </node-->
+
+</launch>

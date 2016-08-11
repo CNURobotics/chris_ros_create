@@ -1,0 +1,29 @@
+<launch>
+  <arg name="base"       value="create"/>
+  <arg name="battery"    value="$(optenv CHRIS_BATTERY /proc/acpi/battery/BAT0)"/>
+  <arg name="serialport" default="$(optenv CHRIS_CREATE_SERIAL_PORT /dev/ttyUSB0)"/>
+
+  <!-- This loads  the base create model description without any sensors -->
+  <arg name="urdf_file" default="$(find xacro)/xacro -v --inorder '$(find chris_create_model)/robots/create.urdf.xacro'" />
+  <param name="robot_description" command="$(arg urdf_file)" />
+
+  <node pkg="chris_create_node" type="create_node.py" name="create_node" respawn="true" args="--respawnable" output="screen">
+    <param name="bonus" value="false" />
+    <param name="update_rate" value="30.0" />
+    <param name="stop_motors_on_bump" value="False" />
+    <param name="port" value="$(arg serialport)" />
+  </node>
+
+  <!-- Basic odometry estimator for robot odometry published by the node plugin -->
+  <node pkg="simple_message_to_tf" type="message_to_tf" name="robot_odometry">
+    <param name="odometry_topic" value="/create_node/odom"/>
+  </node>
+
+  <!-- Publish the joint states as tf transforms based on the urdf configuration -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+    <remap from="joint_states" to="/create_node/joint_states" />
+  </node>
+
+
+</launch>

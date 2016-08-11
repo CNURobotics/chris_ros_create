@@ -1,0 +1,13 @@
+<launch>
+  <arg name="world_file"  default="$(find chris_create_model)/worlds/empty.world"/>
+
+  <!-- open the basic empty world setup -->
+  <include file="$(find chris_create_model)/launch/empty_world.launch" />
+  
+  <!-- launch the base create model -->
+  <include file="$(find chris_create_model)/launch/includes/create.launch.xml" />
+
+  <!-- launch the gazebo setup for loaded model -->
+  <include file="$(find chris_create_model)/launch/includes/create_gazebo.launch.xml" />
+  
+</launch>

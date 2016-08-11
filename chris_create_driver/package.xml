@@ -1,0 +1,25 @@
+<package>
+  <name>chris_create_driver</name>
+  <version>0.0.1</version>
+  <description>
+    Driver for iRobot Create and Roomba based on turtlebot 2.3.0
+    
+    This is a generic driver for iRobot Create that currently holds
+    implementations for Turtlebot and Roomba. Port of pyrobot.py by Damon Kohler.
+  
+    For ROS bindings, please see chris_create_node.
+  </description>
+
+  <maintainer email="david.conner@cnu.edu">CNURobotics</maintainer>
+  <license>MIT</license>
+  <url type="website">https://github.com/cnurobotics/chris_create/wiki</url>
+  <url type="repository">https://github.com/cnurobotics/chris_create</url>
+  <url type="bugtracker">https://github.com/cnurobotics/chris_create/issues</url>
+  <author email="info@cnurobotics.org">CNURobotics</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

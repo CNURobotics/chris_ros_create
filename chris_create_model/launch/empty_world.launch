@@ -1,0 +1,17 @@
+<launch>
+  <arg name="world_file"  default="$(find chris_create_model)/worlds/empty.world"/>
+  <arg name="gui" default="true"/>
+
+  <!-- This launches just the gazebo simulator with empty world setup for create simulations.
+       No model is loaded by this file; just the basic simulation setup.  Specific robot configurations are launched by other files. -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="false" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="world_name" value="$(arg world_file)"/>
+ </include>
+  
+  
+</launch>

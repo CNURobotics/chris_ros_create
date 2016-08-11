@@ -1,0 +1,29 @@
+<package>
+  <name>chris_create_model</name>
+  <version>0.0.1</version>
+  <description>Simplified iRobot Create Model based on 2.3.0 version of Turtlebot (https://github.com/turtlebot)</description>
+  <maintainer email="david.conner@cnu.edu">CNURobotics</maintainer>
+  <license>BSD</license>
+  <url type="website">https://github.com/cnurobotics/chris_create/wiki</url>
+  <url type="repository">https://github.com/cnurobotics/chris_create</url>
+  <url type="bugtracker">https://github.com/cnurobotics/chris_create/issues</url>
+  <author email="info@cnurobotics.org">CNURobotics</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <build_depend>chris_create_node</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>chris_create_node</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+</package>

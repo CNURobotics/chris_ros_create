@@ -1,0 +1,43 @@
+<package>
+  <name>chris_create_node</name>
+  <version>0.0.1</version>
+  <description>
+    iRobot Create ROS driver node based on Turtlebot 2.3.0
+
+    See https://github.com/turtlebot/turtlebot_create/create_node for more information
+
+    ROS bindings for the Create/Roomba driver.
+  </description>
+
+  <maintainer email="david.conner@cnu.edu">CNURobotics</maintainer>
+  <license>BSD</license>
+  <url type="website">https://github.com/cnurobotics/chris_create/wiki</url>
+  <url type="repository">https://github.com/cnurobotics/chris_create</url>
+  <url type="bugtracker">https://github.com/cnurobotics/chris_create/issues</url>
+  <author email="info@cnurobotics.org">CNURobotics</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>chris_create_driver</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+
+  <run_depend>chris_create_driver</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>python_orocos_kdl</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+  
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

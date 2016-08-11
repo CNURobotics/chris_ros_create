@@ -1,0 +1,8 @@
+<launch>
+  <arg name="world_file"  default="$(find chris_create_model)/worlds/playground.world"/>
+
+  <!-- open the basic empty world setup with this world model -->
+  <include file="$(find chris_create_model)/launch/create_world.launch" />
+  
+
+</launch>

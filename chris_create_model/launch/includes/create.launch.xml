@@ -1,0 +1,7 @@
+<launch>
+  
+  <!-- load the robot description for the base create model (no sensors) -->
+  <arg name="urdf_file" default="$(find xacro)/xacro -v --inorder '$(find chris_create_model)/robots/create.urdf.xacro'" />
+  <param name="robot_description" command="$(arg urdf_file)" />
+  
+</launch>
